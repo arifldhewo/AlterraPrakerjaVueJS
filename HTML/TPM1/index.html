@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Praktik Mandiri 1</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .content {
+          width: 100%;
+          height: 50px;
+        }
+      }
+
+      @media screen and (min-width: 600px) and (max-width: 960px) {
+        .container {
+          display: grid;
+          grid-template-columns: auto auto;
+        }
+
+        .content {
+          width: 100%;
+          height: 50px;
+        }
+      }
+
+      @media screen and (min-width: 960px) {
+        .container {
+          display: grid;
+          grid-template-columns: auto auto auto;
+        }
+
+        .content {
+          width: 100%;
+          height: 50px;
+        }
+      }
+
+      #red {
+        background-color: red;
+      }
+      #green {
+        background-color: green;
+      }
+      #blue {
+        background-color: blue;
+      }
+      #yellow {
+        background-color: yellow;
+      }
+      #purple {
+        background-color: purple;
+      }
+      #grey {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content" id="red"></div>
+      <div class="content" id="green"></div>
+      <div class="content" id="blue"></div>
+      <div class="content" id="yellow"></div>
+      <div class="content" id="purple"></div>
+      <div class="content" id="grey"></div>
+    </div>
+  </body>
+</html>

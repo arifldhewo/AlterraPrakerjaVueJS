@@ -1,3 +1,4 @@
 *.pdf
-/Lesson2
+/Lesson
 *.odt
+node_modules

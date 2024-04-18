@@ -5,6 +5,7 @@
     <h1>Todo List</h1>
     <input v-model="todo" type="text" />
     <button @click="submitTodoList">Save Me</button>
+    <div v-if="todoEmpty">Tidak Boleh Kosong</div>
     <div>
       <ol>
         <li v-for="todo in todoList" v-bind:key="todo">{{ todo }}</li>
@@ -21,13 +22,20 @@ export default {
     return {
       todo: "",
       todoList: [],
+      todoEmpty: false,
     };
   },
   methods: {
     submitTodoList: function () {
-      this.todoList.push(this.todo);
+      if (this.todo.length) {
+        this.todoList.push(this.todo);
 
-      this.todo = "";
+        this.todo = "";
+
+        this.todoEmpty = false;
+      } else {
+        this.todoEmpty = true;
+      }
     },
   },
   computed: {

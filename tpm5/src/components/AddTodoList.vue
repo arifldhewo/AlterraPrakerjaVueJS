@@ -2,6 +2,7 @@
   <div>
     <label class="d-block" for="inputTodoList">Todo:</label>
     <input
+      style="width: 94%"
       id="inputTodoList"
       type="text"
       v-model="todo"
@@ -18,16 +19,24 @@ export default {
   name: "AddTodoList",
   props: {
     textPlaceholder: String,
-    isShowingError: Boolean,
   },
   data() {
     return {
       todo: "",
+      isShowingError: false,
     };
   },
   methods: {
     pushTodo() {
-      this.$emit("update-todo", this.todo);
+      if (!this.todo) {
+        this.isShowingError = true;
+      } else {
+        const trimmed = this.todo.trim();
+
+        this.$store.dispatch("triggerPushTodo", trimmed);
+
+        this.isShowingError = false;
+      }
 
       this.todo = "";
     },

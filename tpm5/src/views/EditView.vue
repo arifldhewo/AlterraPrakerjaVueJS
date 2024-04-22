@@ -2,11 +2,20 @@
   <div>
     <button @click="goBack">Kembali</button>
     <h1>Edit Page</h1>
-    <div>
-      <p v-if="isEdited">Belum Ada Deskripsi Nih!!!</p>
-      <input v-if="!isEdited" type="text" />
+    <div v-if="!isEdited">
+      <div v-if="!statusValue">
+        <p>Belum Ada Deskripsi Nih!!!</p>
+        <button @click="isEditActiveToggle()">Ubah Deskripsi</button>
+      </div>
+      <div v-if="statusValue">
+        <p>{{ descValue }}</p>
+        <button @click="isEditActiveToggle()">Ubah Deskripsi</button>
+      </div>
     </div>
-    <button @click="isEditActiveToggle()">Ubah Deskripsi</button>
+    <div v-if="isEdited">
+      <input style="margin-bottom: 13px" type="text" v-model="descValue" />
+      <button @click="changeValueDescription()">Save Me</button>
+    </div>
   </div>
 </template>
 
@@ -16,6 +25,8 @@ export default {
   data() {
     return {
       isEdited: false,
+      descValue: "",
+      statusValue: false,
     };
   },
   methods: {
@@ -23,6 +34,11 @@ export default {
       this.$router.go(-1);
     },
     isEditActiveToggle() {
+      this.isEdited = !this.isEdited;
+    },
+    changeValueDescription() {
+      this.statusValue = 1;
+
       this.isEdited = !this.isEdited;
     },
   },

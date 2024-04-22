@@ -1,7 +1,11 @@
 <template>
   <div>
     <ol>
-      <li v-for="(todo, index) in resultArr" :key="index" :id="`${index}`">
+      <li
+        v-for="(todo, index) in this.$store.state.todoList"
+        :key="index"
+        :id="`${index}`"
+      >
         <template v-if="isShowing(index, indexButton)">
           <div>
             <input type="text" :placeholder="todo" v-model="todoEdit" />
@@ -26,9 +30,6 @@
 export default {
   name: "ResultTodo",
   props: {
-    resultArr: {
-      type: Array,
-    },
     cancelSave: {
       type: Boolean,
     },
@@ -41,10 +42,10 @@ export default {
   },
   methods: {
     deleteItem(buttonId) {
-      this.$emit("trigger-delete", buttonId);
+      this.$store.dispatch("triggerDeleteItem", buttonId);
     },
     editItem(buttonId) {
-      this.$emit("trigger-edit", [this.todoEdit, buttonId]);
+      this.$store.dispatch("triggerEditItem", [this.todoEdit, buttonId]);
 
       this.indexButton = -1;
     },

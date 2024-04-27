@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full mt-96 md:mt-80 xl:mt-72 2xl:mt-[500px] flex justify-evenly items-center font-merriweathers-sans"
+    class="w-full mt-10 md:mt-20 lg:mt-32 flex justify-evenly items-center font-merriweathers-sans"
   >
     <img
       class="w-[95px]"

@@ -10,7 +10,7 @@
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-house scale-150"
+            class="bi bi-house scale-150 hover:animate-pulse"
             viewBox="0 0 16 16"
           >
             <path
@@ -26,7 +26,7 @@
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-list scale-150"
+            class="bi bi-list scale-150 hover:animate-pulse"
             viewBox="0 0 16 16"
           >
             <path
@@ -43,7 +43,7 @@
             width="16"
             height="16"
             fill="currentColor"
-            class="bi bi-skip-backward scale-150"
+            class="bi bi-skip-backward scale-150 hover:animate-pulse"
             viewBox="0 0 16 16"
           >
             <path
